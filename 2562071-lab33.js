@@ -16,6 +16,7 @@ function getMusicTitlesByYear(tracks) {
             typeof track.title !== "string" ||
             typeof track.artist !== "string" ||
             typeof track.year !== "number" ||
+            track.year%1!==0 ||
             isNaN(track.year)
         ) {
             continue; // Skip invalid track
@@ -38,6 +39,8 @@ function getMusicTitlesByYear(tracks) {
     return music;
 }
 
+/*// Exporting the function for external use
+module.exports = getMusicTitlesByYear;*/
 
 
 const tracks = [
@@ -74,5 +77,3 @@ const tracks = [
   console.log(getMusicTitlesByYear(null)); // Expected Output: {}
   
   console.log(getMusicTitlesByYear(123)); // Expected Output: {}
-/* Exporting the function for external use
-module.exports = getMusicTitlesByYear;*/
